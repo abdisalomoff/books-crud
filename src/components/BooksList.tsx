@@ -45,7 +45,7 @@ const BooksList: FC<Props> = () => {
         <Typography variant="h5">My Books</Typography>
 
         <Link to="/search">
-          <Button>Find a book</Button>
+          <Button>Search a book</Button>
         </Link>
       </Box>
 

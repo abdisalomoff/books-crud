@@ -37,13 +37,13 @@ const SearchPage: FC<Props> = () => {
 
       <Box component="form" display="flex" gap={1} onSubmit={handleSearch}>
         <TextField
-          placeholder="Type book title"
+          placeholder="Search a book"
           size="small"
           value={title}
           onChange={handleChangeTitle}
         />
         <Button variant="contained" type="submit" disabled={isLoading}>
-          Find
+          Search
         </Button>
       </Box>
 

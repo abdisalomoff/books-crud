@@ -88,7 +88,7 @@ const BookStatusButton: FC<Props> = ({ book }) => {
             {BOOK_STATUSES[+index].label}
           </MenuItem>
         ))}
-        {/* <MenuItem onClick={handleClose}>Find a book</MenuItem>
+        {/* <MenuItem onClick={handleClose}>Search a book</MenuItem>
         <MenuItem onClick={handleClose}>Logout</MenuItem> */}
       </Menu>
     </>

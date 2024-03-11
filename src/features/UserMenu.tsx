@@ -72,7 +72,7 @@ const UserMenu: FC<Props> = () => {
             <ListItemIcon>
               <Search fontSize="small" />
             </ListItemIcon>
-            Find a book
+            Search a book
           </MenuItem>
         </Link>
         <Divider />
