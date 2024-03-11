@@ -40,7 +40,7 @@ const BookCard: FC<Props> = ({ book, added }) => {
   };
 
   return (
-    <Stack position="relative" bgcolor="grey.200">
+    <Stack position="relative" bgcolor="white" borderRadius="8px" boxShadow="0 4px 8px rgba(0, 0, 0, 0.1)">
       {book.status !== undefined && <BookStatusButton book={book} />}
       <Box
         component="img"
@@ -49,28 +49,18 @@ const BookCard: FC<Props> = ({ book, added }) => {
         width={1}
         sx={{
           aspectRatio: "2/3",
+          borderTopLeftRadius: "8px",
+          borderTopRightRadius: "8px",
         }}
       />
       <Stack
         gap={2}
         sx={{
-          position: "absolute",
-          bgcolor: "rgba(0, 0, 0, 0.7)",
-          color: "white",
-          width: 1,
-          height: 1,
           p: 2,
-          pt: 3,
-          opacity: 0,
-          transition: "opacity 0.3s",
-          lineHeight: 1,
-          "&:hover": {
-            opacity: 1,
-          },
         }}
       >
-        <Typography variant="subtitle1">{book.title}</Typography>
-        <Typography>Author: {book.author}</Typography>
+        <Typography variant="h6">{book.title}</Typography>
+        <Typography variant="subtitle1">Author: {book.author}</Typography>
         <Typography>Publish year: {book.published}</Typography>
         <Typography>ISBN: {book.isbn}</Typography>
 
@@ -78,23 +68,24 @@ const BookCard: FC<Props> = ({ book, added }) => {
           <Button
             variant="contained"
             size="small"
+            color="primary"
             sx={{ mt: "auto" }}
             onClick={handleAdd}
             disabled={isLoading}
           >
-            Add
+            Add to Library
           </Button>
         )}
         {book.status !== undefined && added && (
           <Button
             variant="contained"
-            color="error"
             size="small"
+            color="error"
             sx={{ mt: "auto" }}
             onClick={handleDelete}
             disabled={isRemoving}
           >
-            Remove
+            Remove from Library
           </Button>
         )}
       </Stack>
