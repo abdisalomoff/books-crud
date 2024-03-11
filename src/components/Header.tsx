@@ -13,7 +13,7 @@ const Header: FC<Props> = () => {
       sx={{ position: "sticky", top: 0, zIndex: 10, py: 1 }}
     >
       <Container maxWidth="xl" sx={{ display: "flex", alignItems: "center" }}>
-        <Typography variant="h4">Bookshelf App</Typography>
+        <Typography variant="h4">Books Crud</Typography>
 
         {user && <UserMenu />}
       </Container>

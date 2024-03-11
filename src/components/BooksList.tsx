@@ -1,14 +1,12 @@
 import {
   Box,
   Button,
-  ButtonGroup,
   Grid,
   Stack,
   Typography,
 } from "@mui/material";
 import { FC, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { BOOK_STATUSES } from "../app/constants";
 import { useGetBooksQuery } from "../services/booksApi";
 import { Book, BookStatus } from "../types";
 import BookCard from "./BookCard";
@@ -45,19 +43,6 @@ const BooksList: FC<Props> = () => {
         flexWrap="wrap"
       >
         <Typography variant="h5">My Books</Typography>
-
-        <ButtonGroup
-          variant="contained"
-          aria-label="outlined primary button group"
-          sx={{ order: { xs: 1, sm: 0 } }}
-        >
-          <Button onClick={() => handleChangeFilter(null)}>ALL</Button>
-          {Object.keys(BOOK_STATUSES).map((key) => (
-            <Button key={key} onClick={() => handleChangeFilter(+key)}>
-              {BOOK_STATUSES[+key].label}
-            </Button>
-          ))}
-        </ButtonGroup>
 
         <Link to="/search">
           <Button>Find a book</Button>
