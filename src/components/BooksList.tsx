@@ -28,7 +28,7 @@ const BooksList: FC<Props> = () => {
       );
       setFilteredBooks(filtered || []);
     }
-  }, [filterStatus, data]);
+  }, [filterStatus, data, setFilterStatus]);
 
   return (
     <Stack gap={3}>
