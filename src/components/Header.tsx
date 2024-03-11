@@ -1,5 +1,6 @@
-import { Container, Paper, Typography } from "@mui/material";
+import { AppBar, Container, IconButton, Toolbar, Typography } from "@mui/material";
 import { FC } from "react";
+import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 import UserMenu from "./heading/UserMenu";
 import useAuth from "../hooks/useAuth";
 
@@ -7,17 +8,19 @@ interface Props {}
 
 const Header: FC<Props> = () => {
   const { user } = useAuth();
-  return (
-    <Paper
-      component="header"
-      sx={{ position: "sticky", top: 0, zIndex: 10, py: 1 }}
-    >
-      <Container maxWidth="xl" sx={{ display: "flex", alignItems: "center" }}>
-        <Typography variant="h4">Books Crud</Typography>
 
+  return (
+    <AppBar position="sticky" sx={{ backgroundColor:  "#4caf50"  }}>
+      <Toolbar>
+        <IconButton size="large" edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
+          <AutoStoriesIcon />
+        </IconButton>
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          Books Crud
+        </Typography>
         {user && <UserMenu />}
-      </Container>
-    </Paper>
+      </Toolbar>
+    </AppBar>
   );
 };
 

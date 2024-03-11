@@ -29,7 +29,7 @@ const UserMenu: FC<Props> = () => {
       <IconButton
         size="large"
         edge="end"
-        sx={{ ml: "auto" }}
+        sx={{ ml: "auto", color: "white" }}
         onClick={handleClick}
       >
         <MenuIcon />
