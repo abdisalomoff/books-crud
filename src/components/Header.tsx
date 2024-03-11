@@ -1,6 +1,6 @@
 import { Container, Paper, Typography } from "@mui/material";
 import { FC } from "react";
-import UserMenu from "../features/UserMenu";
+import UserMenu from "./heading/UserMenu";
 import useAuth from "../hooks/useAuth";
 
 interface Props {}

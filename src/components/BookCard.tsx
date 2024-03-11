@@ -5,7 +5,7 @@ import {
   useAddBookMutation,
   useDeleteBookMutation,
 } from "../services/booksApi";
-import BookStatusButton from "../features/BookStatusButton";
+import BookStatusButton from "../components/heading/BookStatusButton";
 import { Book } from "../types";
 
 interface Props {

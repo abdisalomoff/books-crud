@@ -1,9 +1,9 @@
 import { Button, Menu, MenuItem, Typography } from "@mui/material";
 import { FC, useState } from "react";
 import { toast } from "react-toastify";
-import { BOOK_STATUSES } from "../app/constants";
-import { useEditBookStatusMutation } from "../services/booksApi";
-import { Book, BookStatus } from "../types";
+import { BOOK_STATUSES } from "../../app/constants";
+import { useEditBookStatusMutation } from "../../services/booksApi";
+import { Book, BookStatus } from "../../types";
 
 interface Props {
   book: Required<Book>;

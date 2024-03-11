@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import { FC, useState } from "react";
 import { Link } from "react-router-dom";
-import useAuth from "../hooks/useAuth";
+import useAuth from "../../hooks/useAuth";
 
 interface Props {}
 
