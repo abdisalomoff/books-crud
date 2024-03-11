@@ -30,10 +30,6 @@ const BooksList: FC<Props> = () => {
     }
   }, [filterStatus, data]);
 
-  const handleChangeFilter = (status: BookStatus | null) => {
-    setFilterStatus(status);
-  };
-
   return (
     <Stack gap={3}>
       <Box
