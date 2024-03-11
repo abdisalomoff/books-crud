@@ -1,5 +1,5 @@
 import { FetchArgs } from "@reduxjs/toolkit/dist/query";
-import { MD5 } from "crypto-js";
+import md5 from "md5";
 
 type QueryArgs = {
   url: string;
@@ -22,7 +22,7 @@ export const queryWithHeaders = (args: QueryArgs): string | FetchArgs => {
     ...args,
     headers: {
       Key: key,
-      Sign: MD5(method + url + (body && JSON.stringify(body)) + secret),
+      Sign: md5(method + url + (body && JSON.stringify(body)) + secret),
     },
   };
 };

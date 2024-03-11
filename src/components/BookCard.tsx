@@ -19,7 +19,6 @@ const BookCard: FC<Props> = ({ book, added }) => {
 
   const handleAdd = () => {
     add({ isbn: book.isbn })
-      .unwrap()
       .then(() => {
         toast.success(`Book "${book.title}" added to your list`);
       })
@@ -31,7 +30,6 @@ const BookCard: FC<Props> = ({ book, added }) => {
 
   const handleDelete = () => {
     remove(book.id)
-      .unwrap()
       .then(() => {
         toast.success(`Book "${book.title}" removed from your list`);
       })

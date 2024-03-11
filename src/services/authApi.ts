@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { MD5 } from "crypto-js";
+import md5 from "md5";
 import { API_BASE_URL } from "../app/constants";
 
 interface Credentials {
@@ -27,7 +27,7 @@ export const authApi = createApi({
         method: "GET",
         headers: {
           Key: body.key,
-          Sign: MD5("GET" + "/myself" + body.secret),
+          Sign: md5("GET" + "/myself" + body.secret),
         },
       }),
     }),
