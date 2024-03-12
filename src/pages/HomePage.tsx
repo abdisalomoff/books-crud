@@ -1,5 +1,5 @@
 import { FC } from "react";
-import AuthTabs from "../components/AuthTabs";
+import AuthTabs from "../components/Auth/AuthTabs";
 import BooksList from "../components/BooksList";
 import useAuth from "../hooks/useAuth";
 

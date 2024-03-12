@@ -2,38 +2,67 @@ import { Button, Stack, TextField } from "@mui/material";
 import { FC } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
-import { useGetUserMutation } from "../services/authApi";
-import useAuth from "../hooks/useAuth";
+import { useRegisterUserMutation } from "../../services/authApi";
+import useAuth from "../../hooks/useAuth";
+
 type Inputs = {
+  name: string;
+  email: string;
   key: string;
   secret: string;
 };
 
-const LoginForm: FC = () => {
+const RegistrationForm: FC = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>();
-  const [login, { isLoading }] = useGetUserMutation();
   const { setUser } = useAuth();
 
+  const [registerUser, { isLoading }] = useRegisterUserMutation();
+
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    login(data)
+    registerUser(data)
       .unwrap()
       .then((res) => {
-        setUser(res.data);
-        sessionStorage.setItem("auth", JSON.stringify(res.data));
-        toast.success("Login success");
+        if (res.isOk) {
+          setUser(res.data);
+          sessionStorage.setItem("auth", JSON.stringify(res.data));
+          toast.success("Registration successful");
+        }
       })
-      .catch((error) => {
-        console.error(error);
-        toast.error(error.data.message);
-      });
+      .catch(console.error);
   };
 
   return (
     <Stack gap={2} component="form" onSubmit={handleSubmit(onSubmit)}>
+      <TextField
+        variant="outlined"
+        size="small"
+        fullWidth
+        label="Name"
+        {...register("name", { required: "Name is required" })}
+        error={Boolean(errors.name)}
+        helperText={errors.name?.message}
+      />
+
+      <TextField
+        variant="outlined"
+        size="small"
+        fullWidth
+        label="Email"
+        {...register("email", {
+          required: "Email is required",
+          pattern: {
+            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+            message: "Invalid email address",
+          },
+        })}
+        error={Boolean(errors.email)}
+        helperText={errors.email?.message}
+      />
+
       <TextField
         variant="outlined"
         size="small"
@@ -63,10 +92,10 @@ const LoginForm: FC = () => {
         size="large"
         disabled={isLoading}
       >
-        Sign in
+        Sign Up
       </Button>
     </Stack>
   );
 };
 
-export default LoginForm;
+export default RegistrationForm;

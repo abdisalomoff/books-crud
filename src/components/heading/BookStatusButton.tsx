@@ -1,7 +1,7 @@
 import { Button, Menu, MenuItem, Typography } from "@mui/material";
 import { FC, useState } from "react";
 import { toast } from "react-toastify";
-import { BOOK_STATUSES } from "../../app/constants";
+import { BOOK_STATUS } from "../../app/constants";
 import { useEditBookStatusMutation } from "../../services/booksApi";
 import { Book, BookStatus } from "../../types";
 
@@ -28,7 +28,7 @@ const BookStatusButton: FC<Props> = ({ book }) => {
     changeStatus({ id, status })
       .unwrap()
       .then(() => {
-        toast.success(`Status changed to ${BOOK_STATUSES[status].label}`);
+        toast.success(`Status changed to ${BOOK_STATUS[status].label}`);
         handleClose();
       })
       .catch((error) => {
@@ -40,7 +40,7 @@ const BookStatusButton: FC<Props> = ({ book }) => {
   return (
     <>
       <Button
-        color={BOOK_STATUSES[status].color}
+        color={BOOK_STATUS[status].color}
         variant="contained"
         size="small"
         // disabled
@@ -54,7 +54,7 @@ const BookStatusButton: FC<Props> = ({ book }) => {
         }}
         onClick={handleClick}
       >
-        {BOOK_STATUSES[status].label}
+        {BOOK_STATUS[status].label}
       </Button>
       <Menu
         anchorEl={anchorEl}
@@ -78,14 +78,14 @@ const BookStatusButton: FC<Props> = ({ book }) => {
       >
         <Typography sx={{ px: 2, pt: 1 }}>Change status to:</Typography>
 
-        {Object.keys(BOOK_STATUSES).map((index) => (
+        {Object.keys(BOOK_STATUS).map((index) => (
           <MenuItem
             onClick={() => handleChangeStatus(+index)}
             sx={{ minHeight: 32, py: 0, justifyContent: "right" }}
             disabled={status === +index}
             key={index}
           >
-            {BOOK_STATUSES[+index].label}
+            {BOOK_STATUS[+index].label}
           </MenuItem>
         ))}
         {/* <MenuItem onClick={handleClose}>Search a book</MenuItem>

@@ -1,7 +1,7 @@
 import { Box, Container, Stack } from "@mui/material";
 import { FC } from "react";
 import { Outlet } from "react-router-dom";
-import Header from "./Header";
+import Header from "../Header";
 
 const BaseLayout: FC = () => {
   return (

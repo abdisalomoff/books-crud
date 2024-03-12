@@ -1,4 +1,5 @@
 import { BookStatuses } from "../types";
+
 export const API_BASE_URL = "https://no23.lavina.tech";
 
 export const ROUTES = {
@@ -6,7 +7,7 @@ export const ROUTES = {
   SEARCH: "/search",
 };
 
-export const BOOK_STATUSES: BookStatuses = {
+export const BOOK_STATUS: BookStatuses = {
   0: { label: "New", color: "info" },
   1: { label: "Reading", color: "warning" },
   2: { label: "Finished", color: "success" },

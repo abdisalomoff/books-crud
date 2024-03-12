@@ -1,7 +1,7 @@
 import { Container, Stack, Tab, Tabs } from "@mui/material";
 import { FC, SyntheticEvent, useState } from "react";
 import LoginForm from "./LoginForm";
-import RegistrationForm from "./RegistrationForm";
+import RegistrationForm from "./RegisterForm";
 
 interface Props {}
 
